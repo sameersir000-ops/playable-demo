@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indian Web Demo — Playable Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;padding:14px 16px;background:#0b1729;border-bottom:1px solid #284361;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;font-size:20px}.logo span{color:#ffd21c}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;background:#162842;color:#fff}.primary{background:#ffd21c;color:#111}.green{background:#16c66b;color:#06120b}.red{background:#e74c3c;color:#fff}
+.wrap{max-width:1050px;margin:auto;padding:20px}.page{display:none}.page.active{display:block}
+.hero{text-align:center;padding:35px 10px}.hero h1{font-size:38px;margin:8px}.muted{color:#9fb0c6}.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:18px}.chip{border:1px solid #2c4969;border-radius:30px;padding:8px 12px;background:#0d1d31}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#0d1b2e;border:1px solid #213d5d;border-radius:16px;padding:17px}.game{min-height:180px}.icon{font-size:35px}
+.gamebox{background:#09182b;border:1px solid #315173;border-radius:18px;padding:20px;text-align:center}.balance{font-size:20px;margin-bottom:15px}.balance b{color:#ffd21c}.screen{height:250px;border-radius:14px;background:radial-gradient(circle,#173b62,#07111f 65%);display:flex;align-items:center;justify-content:center;margin-bottom:15px;overflow:hidden}.mult{font-size:64px;font-weight:900;color:#ffd21c}.slot{font-size:48px;letter-spacing:14px}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.notice{margin-top:14px;padding:12px;background:#10243b;border-radius:10px;color:#bdd0e7}
+input{width:100%;padding:12px;border-radius:9px;border:1px solid #355574;background:#09172a;color:white;margin:8px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#10243c;padding:14px;border-radius:12px}.stat b{display:block;font-size:22px;margin-top:6px}
+table{width:100%;border-collapse:collapse}th,td{padding:9px;border-bottom:1px solid #213b57;text-align:left}
+footer{text-align:center;color:#71869e;padding:25px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.hero h1{font-size:29px}.stats{grid-template-columns:1fr 1fr}.screen{height:220px}}
+</style></head>
+<body>
+<header><div class="logo">INDIAN <span>WEB DEMO</span></div><div><button onclick="show('home')">Home</button> <button class="primary" onclick="show('login')">Demo Login</button></div></header>
+
+<section id="home" class="page active"><div class="hero">
+<div class="chip">PLAYABLE DEMO • VIRTUAL COINS ONLY</div>
+<h1>Gaming & Business Website Demo</h1>
+<p class="muted">Customer ko website ka actual UI/interaction experience dikhane ke liye.</p>
+<div class="chips"><span class="chip">📱 Mobile Friendly</span><span class="chip">⚙️ Admin Panel</span><span class="chip">🎮 Playable Demo</span><span class="chip">🪙 Virtual Coins</span></div>
+<button class="primary" onclick="show('login')">▶ Demo Start Karein</button>
+</div>
+<div class="wrap"><div class="grid">
+<div class="card game"><div class="icon">✈️</div><h3>Aviator Demo</h3><p class="muted">Multiplier simulation with virtual coins.</p></div>
+<div class="card game"><div class="icon">💥</div><h3>Crash Demo</h3><p class="muted">Demo round and virtual balance.</p></div>
+<div class="card game"><div class="icon">🎰</div><h3>Slots Demo</h3><p class="muted">Animated virtual slot machine.</p></div>
+</div><div class="notice">⚠️ केवल demo/entertainment simulation. Real-money deposit, withdrawal या betting enabled नहीं है.</div></div></section>
+
+<section id="login" class="page"><div class="wrap" style="max-width:450px"><div class="card">
+<h2>Demo Login</h2><p class="muted">Koi bhi demo name/password use kar sakte hain.</p>
+<input id="name" placeholder="Demo Name" value="Demo User"><input id="pass" type="password" placeholder="Password" value="demo123">
+<button class="primary" style="width:100%" onclick="login()">Login to Demo</button>
+</div></div></section>
+
+<section id="games" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px"><button type="button" onclick="show('home')">⌂ Home</button></div><h1>🎮 Demo Games</h1><p class="muted">Balance: <b id="bal">10000</b> virtual coins</p>
+<div class="grid">
+<div class="card"><div class="icon">✈️</div><h3>Aviator</h3><button class="primary" onclick="show('aviator')">Play Demo</button></div>
+<div class="card"><div class="icon">💥</div><h3>Crash</h3><button class="primary" onclick="show('crash')">Play Demo</button></div>
+<div class="card"><div class="icon">🎰</div><h3>Slots</h3><button class="primary" onclick="show('slots')">Play Demo</button></div>
+</div><div class="notice">Virtual balance resets to 10,000 on page refresh. No cash value.</div></div></section>
+
+<section id="aviator" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
+<button type="button" onclick="show('home')">⌂ Home</button>
+<button type="button" onclick="show('games')">← Back to Games</button>
+</div><div class="gamebox"><h2>✈️ Aviator Demo</h2><div class="balance">Virtual Balance: <b id="ab">10000</b></div><div class="screen"><div id="am" class="mult">1.00x</div></div><div class="row"><button class="primary" onclick="aviator()">Start Round</button><button onclick="show('games')">Back</button></div><div id="amsg" class="notice">Start dabaye. Result random demo simulation hai.</div></div></div></section>
+
+<section id="crash" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
+<button type="button" onclick="show('home')">⌂ Home</button>
+<button type="button" onclick="show('games')">← Back to Games</button>
+</div><div class="gamebox"><h2>💥 Crash Demo</h2><div class="balance">Virtual Balance: <b id="cb">10000</b></div><div class="screen"><div id="cm" class="mult">1.00x</div></div><div class="row"><button class="primary" onclick="crash()">Start Round</button><button onclick="show('games')">Back</button></div><div id="cmsg" class="notice">Demo round start karein.</div></div></div></section>
+
+<section id="slots" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
+<button type="button" onclick="show('home')">⌂ Home</button>
+<button type="button" onclick="show('games')">← Back to Games</button>
+</div><div class="gamebox"><h2>🎰 Slots Demo</h2><div class="balance">Virtual Balance: <b id="sb">10000</b></div><div class="screen"><div id="slot" class="slot">🍒 ⭐ 7️⃣</div></div><div class="row"><button class="primary" onclick="slots()">Spin Demo</button><button onclick="show('games')">Back</button></div><div id="smsg" class="notice">Spin demo — virtual coins only.</div></div></div></section>
+
+<section id="admin" class="page"><div class="wrap"><h1>⚙️ Admin Demo</h1><div class="stats"><div class="stat">Users<b>1,248</b></div><div class="stat">Demo Rounds<b>386</b></div><div class="stat">Virtual Coins<b>2.2M</b></div></div><div class="card" style="margin-top:14px"><h3>Recent Demo Activity</h3><table><tr><th>User</th><th>Game</th><th>Status</th></tr><tr><td>Demo User</td><td>Aviator</td><td>Completed</td></tr><tr><td>Test Player</td><td>Slots</td><td>Completed</td></tr></table></div></div></section>
+
+<footer>Playable demo • Virtual coins only • No real-money transactions</footer>
+<script>
+let balance=10000;
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});update();}
+function update(){['bal','ab','cb','sb'].forEach(id=>{let e=document.getElementById(id);if(e)e.textContent=balance;});}
+function login(){let n=document.getElementById('name').value.trim()||'Demo User';sessionStorage.demoName=n;show('games');}
+function aviator(){let m=1, target=(1+Math.random()*4).toFixed(2);let el=document.getElementById('am');document.getElementById('amsg').textContent='Round running...';let t=setInterval(()=>{m+=.08;el.textContent=m.toFixed(2)+'x';if(m>=target){clearInterval(t);document.getElementById('amsg').textContent='Demo round ended at '+target+'x. Virtual result only.';}},80);}
+function crash(){let m=1,target=(1+Math.random()*5).toFixed(2),el=document.getElementById('cm');document.getElementById('cmsg').textContent='Round running...';let t=setInterval(()=>{m+=.1;el.textContent=m.toFixed(2)+'x';if(m>=target){clearInterval(t);document.getElementById('cmsg').textContent='💥 Crash at '+target+'x. Virtual result only.';}},80);}
+function slots(){let el=document.getElementById('slot'),msg=document.getElementById('smsg'),arr=['🍒','🍋','⭐','🔔','7️⃣','🍀'];let i=0;let t=setInterval(()=>{el.textContent=Array.from({length:3},()=>arr[Math.floor(Math.random()*arr.length)]).join(' ');if(++i>15){clearInterval(t);msg.textContent='Spin complete — demo result only.';}},90);}
+</script></body></html>
