@@ -1,75 +1,114 @@
 <!doctype html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Indian Web Demo — Playable Demo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Custom gaming, business and e-commerce website development with demo, admin panel, hosting and support.">
+<title>Indian Web Studio | Website Demo & Custom Development</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;padding:14px 16px;background:#0b1729;border-bottom:1px solid #284361;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;font-size:20px}.logo span{color:#ffd21c}
-button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;background:#162842;color:#fff}.primary{background:#ffd21c;color:#111}.green{background:#16c66b;color:#06120b}.red{background:#e74c3c;color:#fff}
-.wrap{max-width:1050px;margin:auto;padding:20px}.page{display:none}.page.active{display:block}
-.hero{text-align:center;padding:35px 10px}.hero h1{font-size:38px;margin:8px}.muted{color:#9fb0c6}.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:18px}.chip{border:1px solid #2c4969;border-radius:30px;padding:8px 12px;background:#0d1d31}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#0d1b2e;border:1px solid #213d5d;border-radius:16px;padding:17px}.game{min-height:180px}.icon{font-size:35px}
-.gamebox{background:#09182b;border:1px solid #315173;border-radius:18px;padding:20px;text-align:center}.balance{font-size:20px;margin-bottom:15px}.balance b{color:#ffd21c}.screen{height:250px;border-radius:14px;background:radial-gradient(circle,#173b62,#07111f 65%);display:flex;align-items:center;justify-content:center;margin-bottom:15px;overflow:hidden}.mult{font-size:64px;font-weight:900;color:#ffd21c}.slot{font-size:48px;letter-spacing:14px}
-.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.notice{margin-top:14px;padding:12px;background:#10243b;border-radius:10px;color:#bdd0e7}
-input{width:100%;padding:12px;border-radius:9px;border:1px solid #355574;background:#09172a;color:white;margin:8px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#10243c;padding:14px;border-radius:12px}.stat b{display:block;font-size:22px;margin-top:6px}
-table{width:100%;border-collapse:collapse}th,td{padding:9px;border-bottom:1px solid #213b57;text-align:left}
-footer{text-align:center;color:#71869e;padding:25px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.hero h1{font-size:29px}.stats{grid-template-columns:1fr 1fr}.screen{height:220px}}
-</style></head>
+:root{--bg:#07111f;--panel:#0d1b2e;--panel2:#10243b;--line:#25415f;--text:#f6f8fb;--muted:#a9b9cb;--accent:#ffd21c;--green:#19d477;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:10;background:rgba(7,17,31,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:20px;font-weight:900}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:8px;align-items:center}.navlinks a{padding:9px 11px;color:var(--muted);font-weight:700}.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 17px;border-radius:11px;border:1px solid transparent;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#111}.wa{background:var(--green);color:#03120a}.ghost{background:#13263e;border-color:#31516f}
+.hero{padding:72px 0 48px;background:radial-gradient(circle at 50% 0,#193d65 0,transparent 48%)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.badge{display:inline-block;padding:8px 12px;border:1px solid #385878;border-radius:30px;background:#0e2036;color:#dce8f4;font-size:13px;font-weight:800}
+h1{font-size:48px;line-height:1.08;margin:15px 0}.hero p{font-size:18px;color:var(--muted);max-width:680px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mock{border:1px solid var(--line);background:linear-gradient(145deg,#0f2137,#081522);border-radius:22px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.25)}.mocktop{display:flex;gap:7px;margin-bottom:15px}.dot{width:9px;height:9px;border-radius:50%;background:#5d7187}.mockbox{background:#0d1b2e;border:1px solid #27445f;border-radius:15px;padding:16px}.mockbig{font-size:35px;font-weight:900;color:var(--accent)}.mini{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.mini div{padding:12px;background:#132943;border-radius:10px}
+section{padding:58px 0}.section-title{text-align:center;max-width:760px;margin:0 auto 28px}.section-title h2{font-size:32px;margin:0 0 8px}.section-title p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px}.icon{font-size:34px}.card h3{margin:10px 0 5px}.muted{color:var(--muted)}
+.demo-card{display:flex;flex-direction:column;justify-content:space-between;min-height:220px}.tag{display:inline-block;font-size:12px;background:#172e49;border-radius:20px;padding:6px 9px;color:#d5e3ef}
+.steps{counter-reset:step}.step{position:relative;padding-left:56px}.step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;font-weight:900}
+.pricing{border:1px solid #385878;background:linear-gradient(145deg,#0f2238,#0a1727);text-align:center}.price{font-size:36px;font-weight:900;color:var(--accent);margin:10px 0}.pricing ul{text-align:left;color:var(--muted);padding-left:20px}.pricing li{margin:8px 0}
+.formbox{max-width:720px;margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}label{display:block;font-weight:700;margin:11px 0 5px}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #355574;border-radius:10px;background:#081625;color:#fff;font-size:16px}textarea{min-height:105px;resize:vertical}.notice{padding:12px;border-radius:10px;background:#10243b;color:#bfd0e1;margin:14px 0}
+.cta{background:linear-gradient(120deg,#102c47,#0c1c30);border:1px solid #2d4f70;border-radius:22px;padding:35px;text-align:center}.cta h2{font-size:32px;margin:0 0 8px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#8296aa;text-align:center}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}h1{font-size:38px}.navlinks a{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}h1{font-size:31px}.hero{padding-top:48px}.actions .btn{width:100%}.cta{padding:25px}.section-title h2{font-size:27px}}
+</style>
+</head>
 <body>
-<header><div class="logo">INDIAN <span>WEB DEMO</span></div><div><button onclick="show('home')">Home</button> <button class="primary" onclick="show('login')">Demo Login</button></div></header>
+<header><div class="container nav">
+<a class="brand" href="#home">INDIAN <span>WEB STUDIO</span></a>
+<nav class="navlinks"><a href="#services">Services</a><a href="#demo">Demo</a><a href="#process">Process</a><a href="#contact">Contact</a><a class="btn wa" href="https://wa.me/918239903431?text=Hello%20Indian%20Web%20Studio%2C%20mujhe%20website%20banwani%20hai." target="_blank" rel="noopener">WhatsApp</a></nav>
+</div></header>
 
-<section id="home" class="page active"><div class="hero">
-<div class="chip">PLAYABLE DEMO • VIRTUAL COINS ONLY</div>
-<h1>Gaming & Business Website Demo</h1>
-<p class="muted">Customer ko website ka actual UI/interaction experience dikhane ke liye.</p>
-<div class="chips"><span class="chip">📱 Mobile Friendly</span><span class="chip">⚙️ Admin Panel</span><span class="chip">🎮 Playable Demo</span><span class="chip">🪙 Virtual Coins</span></div>
-<button class="primary" onclick="show('login')">▶ Demo Start Karein</button>
+<main id="home">
+<section class="hero"><div class="container hero-grid">
+<div>
+<span class="badge">⚡ CUSTOM WEBSITE • MOBILE FRIENDLY • DEMO AVAILABLE</span>
+<h1>Apne Business Ke Liye <span style="color:var(--accent)">Professional Website</span> Banwaye</h1>
+<p>Gaming, business, e-commerce aur custom website solutions — modern design, user/admin panels, hosting setup aur required integrations ke saath.</p>
+<div class="actions">
+<a class="btn primary" href="#demo">▶ Live Demo Dekhein</a>
+<a class="btn wa" href="https://wa.me/918239903431?text=Hello%20Indian%20Web%20Studio%2C%20mujhe%20website%20banwani%20hai." target="_blank" rel="noopener">💬 WhatsApp Par Baat Karein</a>
 </div>
-<div class="wrap"><div class="grid">
-<div class="card game"><div class="icon">✈️</div><h3>Aviator Demo</h3><p class="muted">Multiplier simulation with virtual coins.</p></div>
-<div class="card game"><div class="icon">💥</div><h3>Crash Demo</h3><p class="muted">Demo round and virtual balance.</p></div>
-<div class="card game"><div class="icon">🎰</div><h3>Slots Demo</h3><p class="muted">Animated virtual slot machine.</p></div>
-</div><div class="notice">⚠️ केवल demo/entertainment simulation. Real-money deposit, withdrawal या betting enabled नहीं है.</div></div></section>
+<p style="font-size:13px;margin-top:13px">*Final price aur delivery project requirements ke according confirm hoti hai.</p>
+</div>
+<div class="mock"><div class="mocktop"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="mockbox">
+<div class="tag">LIVE DEMO PREVIEW</div><div class="mockbig">Your Brand</div><p class="muted">User Panel • Admin Panel • Responsive UI</p>
+<div class="mini"><div>📱 Mobile Ready</div><div>⚙️ Admin Panel</div><div>🌐 Hosting</div><div>🎨 Custom Design</div></div>
+</div></div>
+</div></section>
 
-<section id="login" class="page"><div class="wrap" style="max-width:450px"><div class="card">
-<h2>Demo Login</h2><p class="muted">Koi bhi demo name/password use kar sakte hain.</p>
-<input id="name" placeholder="Demo Name" value="Demo User"><input id="pass" type="password" placeholder="Password" value="demo123">
-<button class="primary" style="width:100%" onclick="login()">Login to Demo</button>
+<section id="services"><div class="container"><div class="section-title"><h2>Hum Kya Bana Sakte Hain?</h2><p>Aapki requirement ke according website ka design aur features customize kiye ja sakte hain.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">🎮</div><h3>Gaming Website</h3><p class="muted">Demo UI, user panel, admin dashboard aur lawful integrations ke liye custom interface.</p></div>
+<div class="card"><div class="icon">🛒</div><h3>E-commerce Website</h3><p class="muted">Products, categories, orders, customer flow aur management panel.</p></div>
+<div class="card"><div class="icon">🏢</div><h3>Business Website</h3><p class="muted">Professional company/service website with enquiry and WhatsApp CTA.</p></div>
+<div class="card"><div class="icon">📱</div><h3>Mobile Responsive</h3><p class="muted">Phone, tablet aur desktop screens ke liye responsive layout.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Admin Panel</h3><p class="muted">Users, products, orders, reports aur settings ke liye custom dashboard.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Domain & Hosting</h3><p class="muted">Deployment setup aur live website publish karne mein assistance.</p></div>
 </div></div></section>
 
-<section id="games" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px"><button type="button" onclick="show('home')">⌂ Home</button></div><h1>🎮 Demo Games</h1><p class="muted">Balance: <b id="bal">10000</b> virtual coins</p>
+<section id="demo"><div class="container"><div class="section-title"><h2>Live Demo Dekho</h2><p>Customer ko final website ka style aur experience samajhne ke liye demo available hai.</p></div>
 <div class="grid">
-<div class="card"><div class="icon">✈️</div><h3>Aviator</h3><button class="primary" onclick="show('aviator')">Play Demo</button></div>
-<div class="card"><div class="icon">💥</div><h3>Crash</h3><button class="primary" onclick="show('crash')">Play Demo</button></div>
-<div class="card"><div class="icon">🎰</div><h3>Slots</h3><button class="primary" onclick="show('slots')">Play Demo</button></div>
-</div><div class="notice">Virtual balance resets to 10,000 on page refresh. No cash value.</div></div></section>
+<div class="card demo-card"><div><div class="icon">🎮</div><span class="tag">PLAYABLE DEMO</span><h3>Gaming Demo</h3><p class="muted">Virtual/demo environment mein interactive game UI aur user experience.</p></div><a class="btn primary" href="https://sameersir000-ops.github.io/playable-demo/" target="_blank" rel="noopener">Open Live Demo ↗</a></div>
+<div class="card demo-card"><div><div class="icon">🛍️</div><span class="tag">BUSINESS</span><h3>Business / Store Demo</h3><p class="muted">Product cards, enquiry flow aur mobile-friendly storefront preview.</p></div><a class="btn ghost" href="#contact">Custom Demo Puchhein</a></div>
+<div class="card demo-card"><div><div class="icon">⚙️</div><span class="tag">ADMIN</span><h3>Admin Panel Demo</h3><p class="muted">Dashboard, users, orders/reports aur management UI ka preview.</p></div><a class="btn ghost" href="#contact">Admin Demo Puchhein</a></div>
+</div></div></section>
 
-<section id="aviator" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
-<button type="button" onclick="show('home')">⌂ Home</button>
-<button type="button" onclick="show('games')">← Back to Games</button>
-</div><div class="gamebox"><h2>✈️ Aviator Demo</h2><div class="balance">Virtual Balance: <b id="ab">10000</b></div><div class="screen"><div id="am" class="mult">1.00x</div></div><div class="row"><button class="primary" onclick="aviator()">Start Round</button><button onclick="show('games')">Back</button></div><div id="amsg" class="notice">Start dabaye. Result random demo simulation hai.</div></div></div></section>
+<section id="process"><div class="container"><div class="section-title"><h2>Kaise Kaam Hoga?</h2><p>Simple 4-step process.</p></div>
+<div class="grid">
+<div class="card step"><h3>Requirement</h3><p class="muted">Aap apni website ki requirement WhatsApp par bhejo.</p></div>
+<div class="card step"><h3>Demo & Quote</h3><p class="muted">Suitable demo aur project scope ke according quotation.</p></div>
+<div class="card step"><h3>Design & Build</h3><p class="muted">Approved design ko customize karke website develop ki jayegi.</p></div>
+<div class="card step"><h3>Testing & Launch</h3><p class="muted">Testing ke baad hosting/domain par publish karne mein assistance.</p></div>
+</div></div></section>
 
-<section id="crash" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
-<button type="button" onclick="show('home')">⌂ Home</button>
-<button type="button" onclick="show('games')">← Back to Games</button>
-</div><div class="gamebox"><h2>💥 Crash Demo</h2><div class="balance">Virtual Balance: <b id="cb">10000</b></div><div class="screen"><div id="cm" class="mult">1.00x</div></div><div class="row"><button class="primary" onclick="crash()">Start Round</button><button onclick="show('games')">Back</button></div><div id="cmsg" class="notice">Demo round start karein.</div></div></div></section>
+<section><div class="container"><div class="grid">
+<div class="card pricing"><span class="tag">STARTER</span><div class="price">Custom Quote</div><p class="muted">Simple business / landing website</p><ul><li>Responsive design</li><li>WhatsApp enquiry</li><li>Basic pages</li><li>Deployment assistance</li></ul><a class="btn wa" href="#contact">Quote Puchhein</a></div>
+<div class="card pricing"><span class="tag">BUSINESS</span><div class="price">Custom Quote</div><p class="muted">Business / store website</p><ul><li>Custom design</li><li>Product/service sections</li><li>Admin-ready structure</li><li>Hosting assistance</li></ul><a class="btn primary" href="#contact">Quote Puchhein</a></div>
+<div class="card pricing"><span class="tag">CUSTOM</span><div class="price">Discuss</div><p class="muted">Advanced requirements</p><ul><li>Custom features</li><li>User/admin workflow</li><li>Third-party integrations</li><li>Project-based pricing</li></ul><a class="btn ghost" href="#contact">Requirement Bhejein</a></div>
+</div></div></section>
 
-<section id="slots" class="page"><div class="wrap"><div class="row" style="margin-bottom:14px">
-<button type="button" onclick="show('home')">⌂ Home</button>
-<button type="button" onclick="show('games')">← Back to Games</button>
-</div><div class="gamebox"><h2>🎰 Slots Demo</h2><div class="balance">Virtual Balance: <b id="sb">10000</b></div><div class="screen"><div id="slot" class="slot">🍒 ⭐ 7️⃣</div></div><div class="row"><button class="primary" onclick="slots()">Spin Demo</button><button onclick="show('games')">Back</button></div><div id="smsg" class="notice">Spin demo — virtual coins only.</div></div></div></section>
+<section id="contact"><div class="container"><div class="section-title"><h2>Website Banwani Hai?</h2><p>Short details fill karo; WhatsApp par enquiry ready ho jayegi.</p></div>
+<form class="formbox" id="leadForm">
+<label for="name">Name</label><input id="name" required placeholder="Aapka naam">
+<label for="type">Website Type</label><select id="type" required><option value="">Select</option><option>Gaming Demo / Website</option><option>Business Website</option><option>E-commerce Website</option><option>Custom Website</option></select>
+<label for="budget">Approx Budget</label><select id="budget"><option>Not decided</option><option>Under ₹10,000</option><option>₹10,000–₹25,000</option><option>₹25,000+</option></select>
+<label for="details">Requirement</label><textarea id="details" placeholder="Website mein kya chahiye?"></textarea>
+<div class="notice">WhatsApp button dabane par aapke details WhatsApp message mein pre-filled honge.</div>
+<button class="btn wa" type="submit" style="width:100%">💬 WhatsApp Par Enquiry Bhejein</button>
+</form></div></section>
 
-<section id="admin" class="page"><div class="wrap"><h1>⚙️ Admin Demo</h1><div class="stats"><div class="stat">Users<b>1,248</b></div><div class="stat">Demo Rounds<b>386</b></div><div class="stat">Virtual Coins<b>2.2M</b></div></div><div class="card" style="margin-top:14px"><h3>Recent Demo Activity</h3><table><tr><th>User</th><th>Game</th><th>Status</th></tr><tr><td>Demo User</td><td>Aviator</td><td>Completed</td></tr><tr><td>Test Player</td><td>Slots</td><td>Completed</td></tr></table></div></div></section>
+<section><div class="container"><div class="cta"><h2>Demo Dekho, Requirement Batao, Quote Lo.</h2><p class="muted">Aapki requirement ke according custom website planning.</p><a class="btn wa" href="https://wa.me/918239903431?text=Hello%20Indian%20Web%20Studio%2C%20mujhe%20website%20banwani%20hai." target="_blank" rel="noopener">💬 WhatsApp Now</a></div></div></section>
+</main>
 
-<footer>Playable demo • Virtual coins only • No real-money transactions</footer>
+<footer><div class="container">© 2026 Indian Web Studio • Custom Website Development • <a href="#contact">Contact</a><br><small>Services, pricing and delivery are project-specific. Use only lawful business models and compliant integrations.</small></div></footer>
+
 <script>
-let balance=10000;
-function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});update();}
-function update(){['bal','ab','cb','sb'].forEach(id=>{let e=document.getElementById(id);if(e)e.textContent=balance;});}
-function login(){let n=document.getElementById('name').value.trim()||'Demo User';sessionStorage.demoName=n;show('games');}
-function aviator(){let m=1, target=(1+Math.random()*4).toFixed(2);let el=document.getElementById('am');document.getElementById('amsg').textContent='Round running...';let t=setInterval(()=>{m+=.08;el.textContent=m.toFixed(2)+'x';if(m>=target){clearInterval(t);document.getElementById('amsg').textContent='Demo round ended at '+target+'x. Virtual result only.';}},80);}
-function crash(){let m=1,target=(1+Math.random()*5).toFixed(2),el=document.getElementById('cm');document.getElementById('cmsg').textContent='Round running...';let t=setInterval(()=>{m+=.1;el.textContent=m.toFixed(2)+'x';if(m>=target){clearInterval(t);document.getElementById('cmsg').textContent='💥 Crash at '+target+'x. Virtual result only.';}},80);}
-function slots(){let el=document.getElementById('slot'),msg=document.getElementById('smsg'),arr=['🍒','🍋','⭐','🔔','7️⃣','🍀'];let i=0;let t=setInterval(()=>{el.textContent=Array.from({length:3},()=>arr[Math.floor(Math.random()*arr.length)]).join(' ');if(++i>15){clearInterval(t);msg.textContent='Spin complete — demo result only.';}},90);}
-</script></body></html>
+const WA='918239903431';
+document.getElementById('leadForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const type=document.getElementById('type').value;
+ const budget=document.getElementById('budget').value;
+ const details=document.getElementById('details').value.trim();
+ const msg=`Hello Indian Web Studio,%0A%0AName: ${encodeURIComponent(name)}%0AWebsite Type: ${encodeURIComponent(type)}%0ABudget: ${encodeURIComponent(budget)}%0ARequirement: ${encodeURIComponent(details||'Not specified')}`;
+ window.open(`https://wa.me/${WA}?text=${msg}`,'_blank','noopener');
+});
+</script>
+</body></html>
